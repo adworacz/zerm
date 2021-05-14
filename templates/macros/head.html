@@ -7,12 +7,19 @@
 -#}
 
 {% macro styling() %}
-    <link rel="stylesheet" href="{{ get_url(path="style.css", cachebust=true) }}">
-    {% if config.extra.theme_color != "orange" -%}
-        {% set color = "color/" ~ config.extra.theme_color ~ ".css" -%}
-        <link rel="stylesheet" href="{{ get_url(path=color, cachebust=true) }}">
-    {%- else -%}
-        <link rel="stylesheet" href=" {{ get_url(path="color/orange.css", cachebust=true) }}">
+    {% if config.extra.inline_css -%}
+        {% set styleCSS = load_data(path="public/style.css", format="plain") -%}
+        <style>{{ styleCSS | safe | trim }}</style>
+    {% else %}
+        <link rel="stylesheet" href="{{ get_url(path="style.css", cachebust=true) }}">
+    {% endif %}
+    {% set color = config.extra.theme_color | default(value="orange")  -%}
+    {% set colorCSS = "color/" ~ color ~ ".css" -%}
+    {% if config.extra.inline_css -%}
+        {% set colorCSS = load_data(path="public/" ~ colorCSS, format="plain") -%}
+        <style>{{ colorCSS | safe | trim }}</style>
+    {% else -%}
+        <link rel="stylesheet" href="{{ get_url(path=colorCSS, cachebust=true) }}">
     {% endif %}
     {%- if config.extra.custom_css is defined -%}
         <link rel="stylesheet" href="{{ get_url(path="custom.css", cachebust=true) }}">
