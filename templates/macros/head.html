@@ -9,7 +9,7 @@
 {% macro styling() %}
     {% if config.extra.inline_css -%}
         {% set styleCSS = load_data(path="public/style.css", format="plain") -%}
-        <style>{{ styleCSS | safe | trim }}</style>
+        <style>{{ styleCSS | trim | safe }}</style>
     {% else %}
         <link rel="stylesheet" href="{{ get_url(path="style.css", cachebust=true) }}">
     {% endif %}
@@ -17,7 +17,7 @@
     {% set colorCSS = "color/" ~ color ~ ".css" -%}
     {% if config.extra.inline_css -%}
         {% set colorCSS = load_data(path="public/" ~ colorCSS, format="plain") -%}
-        <style>{{ colorCSS | safe | trim }}</style>
+        <style>{{ colorCSS | trim | safe }}</style>
     {% else -%}
         <link rel="stylesheet" href="{{ get_url(path=colorCSS, cachebust=true) }}">
     {% endif %}
