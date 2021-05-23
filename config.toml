@@ -109,6 +109,9 @@ menu_more = "show more"
 # Displayed after teaser text for a blog post.
 read_more = "read more"
 
+# Configure whether to use a Javascript-enabled menu or to print all menu items and avoid using Javascript.
+js_menu = true
+
 # not currently used from previous theme, but leaving here for now in case I
 # feel like adding it.
 read_other_posts = "read other posts"

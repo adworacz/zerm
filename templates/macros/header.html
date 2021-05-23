@@ -4,7 +4,9 @@
         <div class="header__logo">
             {{ logo::logo() }}
         </div>
+        {% if config.extra.js_menu %}
         <div class="menu-trigger">menu</div>
+        {% endif %}
     </div>
     {# Check if there are menu items to render, yes if > 0 #}
     {%- set num = config.extra.main_menu | length -%}

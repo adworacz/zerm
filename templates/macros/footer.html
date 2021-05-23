@@ -10,5 +10,7 @@
 {% endmacro copyright %}
 
 {% macro script() %}
-    <script type="text/javascript" src="{{ get_url(path="assets/js/main.js" ) }}"></script>
+    {% if config.extra.js_menu %}
+        <script type="text/javascript" src="{{ get_url(path="assets/js/main.js" ) }}"></script>
+    {% endif %}
 {% endmacro script %}
