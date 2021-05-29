@@ -93,7 +93,7 @@ a {
   color: inherit;
 }
 
-img {
+@mixin centered {
   display: block;
   max-width: 100%;
 
@@ -109,6 +109,14 @@ img {
   &.right {
     margin-left: auto;
   }
+}
+
+img {
+    @include centered
+}
+
+video {
+    @include centered
 }
 
 p {
