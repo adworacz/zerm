@@ -38,7 +38,7 @@ highlight_theme = "axar" # Other dark themes that work: "1337", "agola-dark",
 # Whether to build a search index to be used later on by a JavaScript library
 build_search_index = false
 
-# Built in taxonomies of zerm. 
+# Built in taxonomies of zerm.
 taxonomies = [
            {name = "tags"},
            {name = "categories"},
@@ -94,7 +94,7 @@ center = false
 # Must be placed in root of static/ directory...
 # og_preview_img = ""
 
-# Copyright notice if desired. Defaults to 
+# Copyright notice if desired. Defaults to
 # copyright = "copyright notice here"
 
 # What is displayed in the top left corner of the website. Default is zerm.
@@ -124,5 +124,15 @@ js_menu = true
 # feel like adding it.
 read_other_posts = "read other posts"
 
+
+# Enable math typesetting with KaTeX
+# Show math in pages with `math=true` in the TOML frontmatter
+enable_katex = true
+
 # Options for disqus
 disqus = { enabled=false, short_name="" }
+
+# generate Table of Contents for all articles
+# Table of Contents can be generated for individual articles
+# by adding `ToC = true` in [extra] section in frontmatter
+# ToC = true
