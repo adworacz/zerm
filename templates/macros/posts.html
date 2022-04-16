@@ -1,12 +1,12 @@
 {% macro section_meta(section, author) %}
     <div class="post-meta">
-        <span class="post-date">
+        <time class="post-date"{%- if section.extra["date"] -%}datetime="{{ section.extra["date"] }}"{% endif %}>
 
             {%- if section.extra["date"] -%}
                 {{ section.extra["date"] | date(format="%Y.%m.%d") }}
                 {# end of section.date if-check #}
             {%- endif -%}
-        </span>
+        </time>
 
         <span class="post-author">
             {%- if author -%}
@@ -29,7 +29,7 @@
 
 {% macro meta(page, author) %}
     <div class="post-meta">
-        <span class="post-date">
+        <time class="post-date" {%- if page.date -%}datetime="{{ page.date }}"{%- endif -%}>
             {%- if page.date -%}
                 {{ page.date | date(format="%Y.%m.%d") }}
                 {# end of page.date if-check #}
@@ -39,7 +39,7 @@
                 [Updated: {{ page.updated | date(format="%Y.%m.%d") }}]
                 {# end of page.updated if-check #}
             {%- endif -%}
-        </span>
+        </time>
 
         <span class="post-author">
             {%- if author -%}

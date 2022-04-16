@@ -60,11 +60,11 @@
             {%- block header -%}
                 {{ header::header() }}
             {%- endblock header -%}
-            <div class="content">
+            <main class="content">
                 {%-  block main -%}
                     {{ lists::list_pages() }}
                 {%- endblock main -%}
-            </div>
+            </main>
             {#-
             I keep pagination out of list, unlike Terminal, because I don't
             like how the pagination buttons move with the width of the content
